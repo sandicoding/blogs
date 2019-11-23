@@ -26,6 +26,8 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+            @include('includes.messages')
+            
             <form role="form" action="{{ route('category.store') }}" method="post">
              {{ csrf_field() }}
               <div class="box-body">
@@ -37,13 +39,14 @@
                 <div class="form-group">
                   <label for="slug">Category Slug</label>
                   <input type="text" class="form-control" id="slug" name="slug" placeholder="slug category">
-                  <p>fdhbdfgfgsdgsg</p>
+
                 </div>
                 
               <!-- /.box-body -->
 			
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ route('category.index') }}" class="btn btn-warning">Back</a>
               </div>
             </form>
           </div>

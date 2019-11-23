@@ -28,11 +28,8 @@
             <!-- /.box-header -->
             <!-- form start -->
 
-            @if($errors->any())
-              @foreach($errors->all() as $error)
-                  <p class="alert alert-danger">{{ $error}}</p>
-              @endforeach
-            @endif  
+            @include('includes.messages')
+            
             <form role="form" action="{{ route('post.store') }}" method="post">
               {{ csrf_field() }}
               <div class="box-body">
@@ -87,6 +84,7 @@
           </div>
               <div class="box-footer">
                 <input type="submit" class="btn btn-primary">
+                <a href="{{ route('post.index') }}" class="btn btn-warning">Back</a>
               </div>
             </form>
           </div>

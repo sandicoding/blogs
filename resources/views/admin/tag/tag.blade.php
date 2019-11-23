@@ -26,6 +26,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+             @include('includes.messages')
             <form role="form" action="{{ route('tag.store') }}" method="post">
               {{ csrf_field() }}
               <div class="box-body">
@@ -43,6 +44,8 @@
 			
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+                <a href="{{ route('tag.index') }}" class="btn btn-warning">Back</a>
               </div>
             </form>
           </div>

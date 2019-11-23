@@ -16,7 +16,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('admin.category.index');
+        $categorys = category::all();
+        return view('admin.category.index', compact('categorys') );
     }
 
     /**
@@ -44,6 +45,9 @@ class CategoryController extends Controller
 
         ]);
 
+        
+
+
         $category = new category;
 
         $category->name = $request->name;
@@ -51,7 +55,7 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect(route('category.index'));
-        
+
     }
 
     /**
