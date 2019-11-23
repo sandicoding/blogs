@@ -59,8 +59,8 @@
                   <td>{{ $loop->index + 1}}</td>
                   <td>{{ $category->name }}</td>
                   <td>{{ $category->slug}}</td>
-                  <td> Edit</td>
-                  <td>Delete</td>
+                  <td><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
+                  <td><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -69,7 +69,7 @@
                   <th>S.No</th>
                   <th>Category Name</th>
                   <th>Slug</th>
-                  <th>Edit</th>
+                  <th></th>
                   <th>Delete</th>
                 </tr>
                 </tfoot>
