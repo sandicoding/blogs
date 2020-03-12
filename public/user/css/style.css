@@ -1,0 +1,19 @@
+.category {
+	background-color: #015668;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	display: inline-block;
+
+
+}
+
+.category a {
+	text-decoration: none;
+	color: #ffff;
+}
+
+.category a:hover {
+	color: #a4a4a4;
+}
+

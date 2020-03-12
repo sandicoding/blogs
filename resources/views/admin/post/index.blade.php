@@ -64,12 +64,18 @@
                   <td>{{ $post->slug}}</td>
                   <td>{{ $post->created_at}}</td>
                   <td><a href="{{ route('post.edit', $post->id ) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-                  <form action=" {{ route('post.destroy', $post->id) }} " style="display: none;">
+                  <td>
+                  <form id="delete-form-{{ $post->id }}" action=" {{ route('post.destroy', $post->id) }} " method="post" style="display: none;">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <td><a href="" onclick="confirm('yakin ingin hapus ?') "><span class="glyphicon glyphicon-trash"></span></a></td>
-                    }
                   </form>
+                    <a href=""  onclick="if(confirm('Apakah anda mau menghapus data')){
+                      event.preventDefault();
+                      document.getElementById('delete-form-{{ $post->id }}').submit();
+                    }else{
+                      event.preventDefault();
+                    }"><span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>

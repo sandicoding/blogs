@@ -9,13 +9,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blank page
-        <small>it all starts here</small>
+       Category
+        <small>data Category</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#">category</a></li>
+        <li class="active">data Category</li>
       </ol>
     </section>
 
@@ -38,7 +38,7 @@
 	          <div class="box-body">
 	          <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Pengelolaan data tag</h3>
+              <h3 class="box-title">Pengelolaan data Category</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -59,8 +59,19 @@
                   <td>{{ $loop->index + 1}}</td>
                   <td>{{ $category->name }}</td>
                   <td>{{ $category->slug}}</td>
-                  <td><a href=""><span class="glyphicon glyphicon-edit"></span></a></td>
-                  <td><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a href="{{ route('category.edit', $category->id ) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                  <td>
+                  <form id="delete-form-{{ $category->id }}" action=" {{ route('category.destroy', $category->id) }} " method="post" style="display: none;">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                  </form>
+                    <a href=""  onclick="if(confirm('Apakah anda mau menghapus data')){
+                      event.preventDefault();
+                      document.getElementById('delete-form-{{ $category->id }}').submit();
+                    }else{
+                      event.preventDefault();
+                    }"><span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>

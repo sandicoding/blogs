@@ -17,7 +17,10 @@ Route::group(['namespace' => 'User'], function () {
 	//route home blog
 	Route::get('/','HomeController@index');
 	//route post blog
-	Route::get('/post','PostController@index');
+	Route::get('/post/{post}','PostController@post')->name('post');
+
+	Route::get('/post/tag/{tag}', 'HomeController@tag')->name('tag');
+	Route::get('/post/category/{category?}', 'HomeController@category')->name('category');
 
 });
 

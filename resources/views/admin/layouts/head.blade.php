@@ -25,12 +25,14 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
   <!-- Date Picker -->
   <link rel="stylesheet" href="{{asset('admin/plugins/datepicker/datepicker3.css')}}">
+ 
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   @section('headsection')
+
 
   @show
 
