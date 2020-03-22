@@ -11,6 +11,7 @@
 
 @section('subHeading', $post->subtitle)
 
+
 @section('main-content')
  <!-- Post Content -->
     <article>
@@ -47,12 +48,12 @@
     </article>
 
     <hr>
-    <div class="container">
+    {{-- <div class="container">
       <div class="row">
       <div class="col-6">
         @comments(['model' => $post])
       </div>  
-      </div>
+      </div> --}}
       
     </div>
 @endsection

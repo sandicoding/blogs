@@ -15,7 +15,7 @@
 Route::group(['namespace' => 'User'], function () {
 
 	//route home blog
-	Route::get('/','HomeController@index');
+	Route::get('/','HomeController@index')->name('home_user');
 	//route post blog
 	Route::get('/post/{post}','PostController@post')->name('post');
 
@@ -24,9 +24,10 @@ Route::group(['namespace' => 'User'], function () {
 
 });
 
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
 	
 	//route admin home
+
 	Route::get('admin/home', 'HomeController@index')->name('admin.home');
 	// route admin users
 	Route::resource('admin/user', 'UserController');
@@ -36,7 +37,9 @@ Route::group(['namespace' => 'Admin'], function () {
 	Route::resource('admin/tag', 'TagController');
 	//route admin category
 	Route::resource('admin/category', 'CategoryController');
-	
+	//ROUTE ADMIN login 
+	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+	Route::post('admin-login', 'Auth\LoginController@login');
 
 });
 
@@ -55,3 +58,10 @@ Route::group(['namespace' => 'Admin'], function () {
 // Route::get('/admin/category', function() {
 // 	return view('admin/category/category');
 // })->name('admin.category');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

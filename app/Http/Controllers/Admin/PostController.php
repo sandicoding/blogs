@@ -10,6 +10,11 @@ use App\Model\user\category;
 use Alert;
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -54,6 +59,7 @@ class PostController extends Controller
            $imageName = $request->image->store('public');
          }
 
+         
         $post = new post;
 
         $post->title = $request->title;

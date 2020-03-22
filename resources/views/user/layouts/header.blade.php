@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{{ route('home_user') }}">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -24,6 +24,22 @@
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        @if(Auth::guest())
+
+                            <a href="{{ route('login') }}">Login</a>
+                        @else
+                              <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('POST')
+                                    </form>
+                        @endif
                     </li>
                 </ul>
             </div>
